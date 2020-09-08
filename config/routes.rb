@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "rooms#index"
-  resource :users, only: [:edit, :update]
-  resource :rooms, only: [:new, :create]
+  resources :users, only: [:edit, :update]
+  resources :rooms, only: [:new, :create] do
+  resources :messages,only: [:create, :index]
+  end
 end
