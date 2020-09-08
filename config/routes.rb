@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  get 'messages/index'
+  devise_for :users
   root to: "messages#index"
+  resource :users, only: [:edit, :update]
+  resource :rooms, only: [:new, :create]
 end
